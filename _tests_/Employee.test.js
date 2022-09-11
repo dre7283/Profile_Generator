@@ -1,3 +1,4 @@
+const { default: test } = require("node:test");
 const Employee = require("../lib/Employee");
 
 test("Can instantiate Employee instance", () => {
@@ -29,3 +30,20 @@ test ("Can get name via getName()", () => {
     expect(e.getName()).toBe(testValue);
 });
 
+test("Can get id via getId()", () =>{
+    const testValue = 100;
+    const e = new Employee("Bar", testValue);
+    expect(e.getId()).toBe(testValue);
+});
+
+test("Can get email via getEmail()", () => {
+    const testValue = "test@test@test";
+    const e = new Employee("Bar", 1, testValue);
+    expect(e.getEmail()).toBe(testValue);
+});
+
+test("getRole() should return \"Employee\"", () => {
+    const testValue = "Employee";
+    const e = new Employee("Kiley", 1, "test@test.com");
+    expect(e.getRole()).toBe(testValue);
+});
