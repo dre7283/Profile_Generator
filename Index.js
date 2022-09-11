@@ -67,7 +67,7 @@ function appMenu() {
         },
     ])       
     .then((answers) => {
-        const manager = New Manager(
+        const manager = new Manager(
             answers.managerName,
             answers.managerId,
             answers.managerEmail,
@@ -241,10 +241,14 @@ function addIntern() {
     });
 }
 
-
-
-
-
-
+function buildTeam() {
+    if (!fs.existsSync(DIST_DIR)) {
+        fs.mkdirSync(DIST_DIR);
+    }
+    fs.writeFileSync(distPath, render(teamMembers), 'utf-8');
 }
+
+    createManager();
 }
+
+appMenu();
