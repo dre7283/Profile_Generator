@@ -196,7 +196,7 @@ function addIntern() {
                     const pass = answer.match(/^[1-9]\d*$/);
                     if (pass) {
                         if(idArray.includes(answer)) {
-                            return 'This ID is alread taken. Please enter a different number.';
+                            return 'This ID is already taken. Please enter a different number.';
                         } else {
                             return true;
                         }
