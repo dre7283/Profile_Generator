@@ -13,6 +13,11 @@ const render = require('./src/template.js');
 const teamMembers = [];
 const idArray = [];
 
+
+
+
+
+
 function appMenu() {
     function createManager() {
     console.log('Please build your team 📋');
@@ -20,7 +25,7 @@ function appMenu() {
         .prompt([
             {
                 type: 'input',
-                nam:'managerName',
+                name:'managerName',
                 message: "What is the team manager's name?",
                 validate: (answer) => {
                     if (answer !== '') {
