@@ -8,7 +8,7 @@ const fs = require('fs');
 const OUTPUT_DIR = path.resolve(__dirname, 'output');
 const outputPath = path.join(OUTPUT_DIR, 'team.html');
 
-const render = require('./src/template.js');
+const render = require('./lib/teamRender.js');
 
 const teamMembers = [];
 const idArray = [];
@@ -18,32 +18,32 @@ const idArray = [];
 
 
 
-function appMenu() {
+function startApp() {
     function createManager() {
-    console.log('Please build your team 📋');
+    console.log('Do you want to build a team? 📋');
     inquirer
         .prompt([
             {
                 type: 'input',
                 name:'managerName',
-                message: "What is the team manager's name?",
+                message: "Enter Manger's name",
                 validate: (answer) => {
                     if (answer !== '') {
                         return true;
                 }
-                return 'Please enter at least one character.';
+                return 'Nothing entered try again';
             },
         },
         {
                 type: 'input',
                 name: 'managerId',
-                message: "What is the team manager's id?",
+                message: "Enter Manager's ID",
                 validate: (answer) => {
                     const pass = answer.match(/^[1-9]\d*$/);
                     if (pass) {
                         return true;
                     }
-                    return 'Please enter a positive number greater that zero.';
+                    return 'Numbers only and must be greater than 0.';
                 },
         },
         {
